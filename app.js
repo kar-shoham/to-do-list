@@ -18,5 +18,8 @@ app.use('/api/v1', userRoute)
 app.use('/api/v1', taskRoute)
 
 
+app.use('*', (req, res, next) => {
+    res.send('<h1>Welcome to TO DO LIST API</h1>')
+})
 app.use(errorHandlerMiddleware)
 export default app
