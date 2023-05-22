@@ -54,6 +54,18 @@ export let logout = asyncWrapper(async(req, res, next) => {
     })
 })
 
+export let getMyDetails = asyncWrapper(async(req, res, next) => {
+    let user = await User.findById(req.user._id)
+    if(!user){
+        return next(createCustomError('User details not found', 404))
+    }
+
+    res.json({
+        success: true,
+        user
+    })
+})
+
 export let getAllUsers = asyncWrapper(async(req, res, next) => {
     let users = await User.find({})
 
