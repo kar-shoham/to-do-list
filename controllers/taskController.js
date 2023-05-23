@@ -19,7 +19,7 @@ export let createTask = asyncWrapper(async(req, res, next) => {
     res.status(201).json({
         success: true,
         message: 'Task created successfully',
-        task: tsk.task
+        task: tsk
     })
 })
 
